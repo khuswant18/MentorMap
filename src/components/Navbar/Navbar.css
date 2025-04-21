@@ -1,0 +1,77 @@
+.header-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%); 
+  width: 65%;
+  background: rgba(100, 97, 97, 0.6); 
+  backdrop-filter: blur(1px); 
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2); 
+  border-radius: 12px;
+  padding: 5px 20px;
+  z-index: 1000;
+  transition: 0.3s ease-in-out;
+  flex-wrap: wrap;
+  color: #ffffff;
+}
+
+
+.header-container:hover {
+  backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.nav-logo .main-logo {
+  height: 50px; 
+  width: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-logo .main-logo:hover {
+  transform: scale(0.8); 
+  filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+
+
+.nav-link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+  .login-but {
+    padding: 15px 30px;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.5s;
+  } 
+
+  .login-but:hover {
+    cursor: pointer;
+  }

@@ -1,0 +1,13 @@
+.avatars {
+    display: flex;
+    gap: 0.7rem;
+
+  }
+  
+  .avatar {
+    margin-left: -10px;
+  }
+  
+  .avatar:first-child {
+    margin-left: 0;
+  }

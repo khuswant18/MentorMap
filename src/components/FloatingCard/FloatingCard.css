@@ -1,0 +1,116 @@
+.floating-card {
+    position: absolute;
+    width: 240px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.5rem;
+    background: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+    box-shadow: 0 5px 5px rgba(84, 85, 85, 0.25);
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 1;
+    background-color: #f0eded;
+  }
+  
+  .floating-card-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .floating-card-content {
+    font-size: 0.8rem;
+  }
+  .top-left {
+    top: 12rem;
+    left: 2rem;
+    transform: rotate(-14deg);
+    animation: lefttoright1 2s ease forwards;
+  }
+  
+  @keyframes lefttoright1 {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: rotate(-14deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(-14deg);
+    }
+  }
+  
+  .top-right {
+    top: 12rem;
+    right: 2rem;
+    transform: rotate(13deg);
+    animation: righttoleft1 2s ease forwards;
+  }
+  
+  @keyframes righttoleft1 {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: rotate(13deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(13deg);
+    }
+  }
+  
+
+  .bottom-left {
+    bottom: 8rem;
+    left: 2rem;
+    transform: rotate(13deg);
+    animation: lefttoright2 2s ease forwards;
+  }
+  
+  @keyframes lefttoright2 {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: rotate(13deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(13deg);
+    }
+  }
+  
+
+  .bottom-right {
+    bottom: 8rem;
+    right: 2rem;
+    transform: rotate(-9deg);
+    animation: righttoleft2 2s ease forwards;
+  }
+  
+  @keyframes righttoleft2 {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    50% {
+      opacity: 0.5;
+      transform: rotate(-9deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(-9deg);
+    }
+  }
+  
+  
