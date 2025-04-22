@@ -46,11 +46,12 @@ function TopMentorCard() {
         {mentors.map((mentor) => (
           <div key={mentor.id} className="mentor-card">
             <div className="mentor-profile">
-              <img
-                src={mentor.avatar || "/placeholder.svg"}
+
+              <img src={mentor.avatar || "/placeholder.svg"}
                 alt={`${mentor.name}'s profile`}
                 className="mentor-avatar"
               />
+              
               <h2 className="mentor-name">{mentor.name}</h2>
 
               <div className="mentor-rating">

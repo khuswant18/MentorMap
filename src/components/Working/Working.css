@@ -1,0 +1,49 @@
+.working-section {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 6rem 0rem;
+}
+
+.working-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+}
+
+.working-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.working-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.symbol-container {
+    padding: 0.9rem;
+    border-radius:50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.working-name {
+    font-weight: 600; 
+    font-size: 1.2rem;
+}
+
+.working-description {
+    text-align: center;
+}

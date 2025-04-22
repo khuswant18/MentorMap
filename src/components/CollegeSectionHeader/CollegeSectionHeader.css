@@ -1,0 +1,72 @@
+.college-heading {
+    padding: 0.6rem 0 ;
+    width: 100vw;
+    background-color: #007bff;
+    color: white;
+}
+
+.college-header-container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.college-heading {
+    font-size:2rem;
+}
+.college-heading-desc {
+    max-width:50%;
+    font-size: 1rem;
+}
+
+.input-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.input-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 600px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%); 
+    color: #888;
+    pointer-events: none;
+}
+
+.college-search {
+    width: 100%; 
+    padding: 10px 12px 10px 40px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease; 
+    } 
+
+.college-search:focus {
+    border-color: #007bff;
+    }
+
+.search-button {
+    padding: 10px 16px;
+    background-color: #fff;
+    color: #1d3fe0;;
+    border: none; 
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #f0e9e9;
+  }
