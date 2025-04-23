@@ -49,8 +49,10 @@ function TopCollegeCard() {
       </div>
 
       <div className="colleges-container">
+        
         {colleges.map((college) => (
           <div key={college.id} className="college-card">
+
             <div className="college-header">
               <img
                 src={college.logo || '/placeholder.svg'}

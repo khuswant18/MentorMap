@@ -4,7 +4,7 @@ import { Search } from 'lucide-react'
 
 function CollegeSectionHeader() {
   return (
-    <section className='college-heading'>
+    <section className='college-header-section'>
 
       <div className="college-header-container">
 

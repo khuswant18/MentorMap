@@ -1,0 +1,13 @@
+.college-section-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.colleges-section-container {
+    margin-left: 350px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+} 
