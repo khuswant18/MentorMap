@@ -1,18 +1,18 @@
 import React from 'react'
 import './Home.css'
 import Hero from '../../components/Hero/Hero'
-import MentorCard from '../../components/MentorCard/MentorCard'
-import Working from '../../components/Working/Working'
+import Featured from '../../components/Featured/Featured'
+import Guide from '../../components/Guide/Guide'
 
 const Home = () => {
   return (
     <div>
       <Hero/> 
-      <MentorCard/>
-      <Working/>
-    </div>
+      <Featured/>
+      <Guide/> 
+    </div> 
   )
 }
 
-export default Home
+export default Home 
  

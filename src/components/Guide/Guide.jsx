@@ -1,5 +1,5 @@
 import React from "react";
-import "./Working.css";
+import "./Guide.css";
 import { Calendar, MessagesSquare, Search } from "lucide-react";
 
 const steps = [
@@ -23,7 +23,7 @@ const steps = [
   },
 ];
 
-function Working() {
+function Guide() {
   return (
     <section className="working-section">
 
@@ -57,4 +57,4 @@ function Working() {
   );
 }
 
-export default Working;
+export default Guide;

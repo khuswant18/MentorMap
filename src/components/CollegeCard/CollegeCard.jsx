@@ -1,8 +1,7 @@
 import React from 'react'
-import './CollegeSectionCard.css'
-import Sidebar from '../Sidebar/Sidebar'
+import './CollegeCard.css'
 
-const colleges = [
+const colleges = [ 
   {
     id: 1,
     name: 'Newton School of Technology',
@@ -39,35 +38,13 @@ const colleges = [
     rating: 4.8,
     popularCourses: ['Computer Science', 'Mechanical', 'Electrical'],
   },
-  {
-    id: 4,
-    name: 'JAYPEE Noida',
-    logo: '/college-4.png',
-    type: 'Private',
-    location: { city: 'Noida', state: 'UP' },
-    rating: 4.8,
-    popularCourses: ['Computer Science', 'Mechanical', 'Electrical'],
-  },
-  {
-    id: 4,
-    name: 'JAYPEE Noida',
-    logo: '/college-4.png',
-    type: 'Private',
-    location: { city: 'Noida', state: 'UP' },
-    rating: 4.8,
-    popularCourses: ['Computer Science', 'Mechanical', 'Electrical'],
-  },
 ]
 
-
-function CollegeSectionCard() {
+function CollegeCard() {
   return (
-    <div className='college-section-container'>
-        <Sidebar/>
-
-        <div className="colleges-section-container">
+      <div className="colleges-container">
         
-        {colleges.map((college) => (
+        {colleges.map((college) => ( 
           <div key={college.id} className="college-card">
 
             <div className="college-header">
@@ -121,9 +98,10 @@ function CollegeSectionCard() {
           </div>
         ))}
       </div>
-      
-    </div> 
   )
 }
 
-export default CollegeSectionCard 
+  
+
+
+export default CollegeCard

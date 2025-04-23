@@ -106,6 +106,7 @@ const Sidebar = () => {
         <button onClick={resetFilters} className='reset-button'>Reset</button>
         <button onClick={() => console.log(filters)} className='apply-button'>Apply</button>
       </div>
+      
     </aside>
   );
 };

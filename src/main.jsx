@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import Layout from './layout'
-import CollegeSection from './Pages/CollegeSection/CollegeSection'
 import MentorSection from './Pages/MentorSection/MentorSection'
 import About from './Pages/About/About'
 import Home from './Pages/Home/Home'
+import ExploreColleges from './Pages/ExploreColleges/ExploreColleges'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path:'explorecollege',
-        element:<CollegeSection/>
+        element:<ExploreColleges/>
       },
       {
         path:'findmentor',
