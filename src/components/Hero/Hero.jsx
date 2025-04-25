@@ -40,10 +40,9 @@ function Hero() {
           </h1>
 
           <p className="subtitle">
-            Whether you're launching a new SaaS platform or revitalizing your
-            existing website,
+          Discover the right mentor and college match tailored to your journey 
             <br />
-            our template offers the perfect balance of aesthetics and usability.
+            connect, learn, and grow with real students.
           </p>
 
           <div className="cta-buttons">

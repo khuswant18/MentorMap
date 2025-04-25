@@ -6,12 +6,13 @@ import Footer from './components/Footer/Footer'
 function Layout() {
   const location = useLocation();
   const showNavbar = location.pathname === "/";
+  const showFooter = location.pathname === "/";
 
   return (
     <div>
       {showNavbar && <Navbar />} 
       <Outlet/>
-      <Footer/>
+      {showFooter && <Footer/>}
     </div>
   )
 }

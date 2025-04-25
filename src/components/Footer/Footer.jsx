@@ -1,12 +1,48 @@
-import React from 'react'
-import './Footer.css'
+import React from 'react';
+import './Footer.css';
+import { NavLink } from 'react-router-dom';
+import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 
 function Footer() {
   return (
-    <div>
-      
+    <div className='footer-section'>
+      <hr />
+      <footer className="footer-container">
+        <div className="cont-1">
+          <h2>MentorMap</h2>
+          <p>Connect in real-time with college students</p>
+        </div>
+
+        <div className="cont-2">
+          <h3>Quick Links</h3>
+          <NavLink to='/explorecollege'>Find Colleges</NavLink>
+          <NavLink to='/findmentor'>Find Mentors</NavLink>
+          <NavLink to='/about'>About</NavLink>
+        </div>
+
+        <div className="cont-3">
+          <h3>Support</h3>
+          <NavLink to='/help'>Help Center</NavLink>
+          <NavLink to='/terms'>Terms & Conditions</NavLink>
+          <NavLink to='/privacy'>Privacy Policy</NavLink>
+        </div>
+
+        <div className="cont-4">
+          <h3>Connect with us</h3>
+          <div className="socials">
+            <a href="#" className='social-link'><Instagram /></a>
+            <a href="#" className='social-link'><Twitter /></a>
+            <a href="#" className='social-link'><Linkedin /></a>
+            <a href="mailto:hello@mentormap.com" className='social-link'><Mail /></a>
+          </div>
+        </div>
+      </footer>
+
+      <div className="footer-bottom">
+        <p>Made with ❤️ by Khuswant Rajpurohit</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
