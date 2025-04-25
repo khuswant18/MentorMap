@@ -7,6 +7,7 @@
   
   
   .college-card {
+    color: #000;
     width: 40%;
     background-color: var(--card-background, #ffffff);
     border: 1px solid var(--border-color, #e5e7eb);
