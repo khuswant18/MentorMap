@@ -22,7 +22,7 @@ function Navbar() {
 
 
             <div className="button">
-                <button className='login-but'>Login</button>
+                <NavLink to='auth' className='login-but'>Login</NavLink>
             </div>
             
 

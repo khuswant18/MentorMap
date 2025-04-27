@@ -7,6 +7,8 @@ import About from './Pages/About/About'
 import Home from './Pages/Home/Home'
 import Layout from './Layout'
 import ExploreColleges from './Pages/ExploreColleges/ExploreColleges'
+import Authentication from './Pages/Authentication/Authentication'
+import SignUp from './components/SignUp/SignUp'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
       {
         path:'',
         element:<Home/>
+      },
+      {
+        path:'/auth',
+        element:<Authentication/>,
       },
       {
         path:'explorecollege',
