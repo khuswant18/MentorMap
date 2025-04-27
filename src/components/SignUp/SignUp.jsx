@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { app } from '../../firebase';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import './SignUp.css';
 
 const auth = getAuth(app);
@@ -12,12 +12,11 @@ function SignUp({ toggleForm }) {
   const [password, setpassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const createUser = (e) => {
-    e.preventDefault(); // Prevent form default submission
+    e.preventDefault(); 
 
-    // Input Validation
     if (!email || !password || !confirmPassword) {
       setError('Please fill in all fields');
       return;
@@ -28,12 +27,11 @@ function SignUp({ toggleForm }) {
       return;
     }
 
-    // Create user with Firebase
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         alert('Success');
-        setError(''); // Clear error if successful
-        navigate('/home'); // Redirect to home page on success
+        setError(''); 
+        navigate('/auth'); 
       })
       .catch((err) => {
         setError('Error: ' + err.message);
@@ -44,7 +42,7 @@ function SignUp({ toggleForm }) {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log('Google sign-in success', result);
-        navigate('/home'); // Redirect to home page on success
+        navigate('/auth'); 
       })
       .catch((err) => {
         setError('Google sign-up failed: ' + err.message);
@@ -61,7 +59,6 @@ function SignUp({ toggleForm }) {
         <p className="form-title">Create an account</p>
         <p className="form-subtitle">Get started with us today!</p>
 
-        {/* Email */}
         <div className="flex-column">
           <label htmlFor="email">Email</label>
           <div className="inputForm">
@@ -77,7 +74,6 @@ function SignUp({ toggleForm }) {
           </div>
         </div>
 
-        {/* Password */}
         <div className="flex-column">
           <label htmlFor="password">Password</label>
           <div className="inputForm">
@@ -93,7 +89,6 @@ function SignUp({ toggleForm }) {
           </div>
         </div>
 
-        {/* Confirm Password */}
         <div className="flex-column">
           <label htmlFor="confirm-password">Confirm Password</label>
           <div className="inputForm">
@@ -109,10 +104,8 @@ function SignUp({ toggleForm }) {
           </div>
         </div>
 
-        {/* Error Handling */}
         {error && <p className="error-message">{error}</p>}
 
-        {/* Terms Checkbox */}
         <div className="terms-check">
           <input type="checkbox" id="terms" required />
           <label htmlFor="terms">
@@ -125,15 +118,14 @@ function SignUp({ toggleForm }) {
         </button>
 
         <p className="p">
-          Already have an account?{' '}
-          <span className="span" onClick={toggleForm}>
+          Already have an account?{' '} 
+          <span className="span" onClick={toggleForm}> 
             Log In
           </span>
         </p>
 
         <p className="line"></p>
 
-        {/* Google Sign-Up */}
         <div className="flex-row">
           <button type="button" className="btn" onClick={signupWithGoogle}>
             <img src="./google.png" alt="Google" className="google-icon" />
