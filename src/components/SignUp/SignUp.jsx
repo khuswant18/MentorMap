@@ -34,7 +34,7 @@ function SignUp({ toggleForm }) {
           .then(() => {
             alert('Registration successful! Please check your email for verification.');
             setError('');
-            navigate('/auth');
+            navigate('/auth'); // Redirect to login page
           })
           .catch((err) => {
             setError('Error sending verification email: ' + err.message);
@@ -49,7 +49,7 @@ function SignUp({ toggleForm }) {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log('Google sign-in success', result);
-        navigate('/auth');
+        navigate('/auth'); // Redirect to login page
       })
       .catch((err) => {
         setError('Google sign-up failed: ' + err.message);

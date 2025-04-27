@@ -13,9 +13,8 @@ function SignIn({ toggleForm }) {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const SigninUser = (e) => {  
-    e.preventDefault();  
-
+  const SigninUser = (e) => {
+    e.preventDefault();
 
     if (!email || !password) {
       setError('Please fill in all fields');
@@ -24,9 +23,14 @@ function SignIn({ toggleForm }) {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
+        // Check if email is verified
+        if (!auth.currentUser.emailVerified) {
+          setError('Please verify your email before logging in.');
+          return;
+        }
         setError('');
-        navigate('/'); 
-      }) 
+        navigate('/'); // Redirect to home or dashboard page
+      })
       .catch((err) => {
         setError('Error: ' + err.message);
       });
@@ -37,7 +41,7 @@ function SignIn({ toggleForm }) {
       .then((result) => {
         const user = result.user;
         console.log('Google Sign-In successful:', user);
-        navigate('/'); 
+        navigate('/'); // Redirect to home or dashboard page
       })
       .catch((error) => {
         setError('Error: ' + error.message);

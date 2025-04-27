@@ -75,3 +75,36 @@
   .login-but:hover {
     cursor: pointer;
   }
+
+  .user-icon-container {
+    position: relative;
+  }
+  
+  .user-icon {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 8px;
+    border-radius: 8px;
+    z-index: 100;
+  }
+  
+  .logout-button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+
