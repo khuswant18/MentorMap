@@ -33,7 +33,6 @@ function SignIn({ toggleForm }) {
   };
 
   const handleGoogleSignIn = () => {
-    // Google Sign-In with Firebase
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
@@ -56,7 +55,6 @@ function SignIn({ toggleForm }) {
         <h2 className="form-title">Welcome Back!</h2>
         <p className="form-subtitle">Sign in to continue your journey</p>
 
-        {/* Email */}
         <div className="flex-column">
           <label>Email</label>
         </div>
@@ -71,7 +69,6 @@ function SignIn({ toggleForm }) {
           />
         </div>
 
-        {/* Password */}
         <div className="flex-column">
           <label>Password</label>
         </div>
@@ -86,7 +83,6 @@ function SignIn({ toggleForm }) {
           />
         </div>
 
-        {/* Error Handling */}
         {error && <p className="error-message">{error}</p>}
 
         <button type="submit" className="button-submit">

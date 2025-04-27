@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: '/explorecolleges', 
         element: <ExploreColleges />,
-      },
+      }, 
       {
         path: '/findmentor',  
         element: <MentorSection />,
