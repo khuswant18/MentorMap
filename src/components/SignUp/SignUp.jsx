@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendEmailVerification } from 'firebase/auth';
 import { app } from '../../firebase';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
 const auth = getAuth(app);
@@ -12,10 +12,10 @@ function SignUp({ toggleForm }) {
   const [password, setpassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const createUser = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     if (!email || !password || !confirmPassword) {
       setError('Please fill in all fields');
@@ -28,10 +28,17 @@ function SignUp({ toggleForm }) {
     }
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        alert('Success');
-        setError(''); 
-        navigate('/auth'); 
+      .then((userCredential) => {
+        // Send email verification
+        sendEmailVerification(userCredential.user)
+          .then(() => {
+            alert('Registration successful! Please check your email for verification.');
+            setError('');
+            navigate('/auth');
+          })
+          .catch((err) => {
+            setError('Error sending verification email: ' + err.message);
+          });
       })
       .catch((err) => {
         setError('Error: ' + err.message);
@@ -42,7 +49,7 @@ function SignUp({ toggleForm }) {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log('Google sign-in success', result);
-        navigate('/auth'); 
+        navigate('/auth');
       })
       .catch((err) => {
         setError('Google sign-up failed: ' + err.message);
@@ -118,8 +125,8 @@ function SignUp({ toggleForm }) {
         </button>
 
         <p className="p">
-          Already have an account?{' '} 
-          <span className="span" onClick={toggleForm}> 
+          Already have an account?{' '}
+          <span className="span" onClick={toggleForm}>
             Log In
           </span>
         </p>

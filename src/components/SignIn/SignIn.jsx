@@ -13,10 +13,10 @@ function SignIn({ toggleForm }) {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const SigninUser = (e) => {
-    e.preventDefault(); 
+  const SigninUser = (e) => {  
+    e.preventDefault();  
 
-    // Input Validation
+
     if (!email || !password) {
       setError('Please fill in all fields');
       return;
