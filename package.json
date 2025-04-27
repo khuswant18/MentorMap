@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@100mslive/react-sdk": "^0.10.33",
     "framer-motion": "^12.7.4",
     "lucide-react": "^0.503.0",
     "react": "^19.1.0",
