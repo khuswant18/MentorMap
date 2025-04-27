@@ -1,16 +1,25 @@
-import React from 'react'
-import './Authentication.css'
-import SignIn from '../../components/SignIn/SignIn'
-import SignUp from '../../components/SignUp/SignUp'
-
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import SignIn from '../../components/SignIn/SignIn';
+import SignUp from '../../components/SignUp/SignUp';
 
 function Authentication() {
+  const [isSignUp, setIsSignUp] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const toggleForm = () => {
+    setIsSignUp(!isSignUp);
+  };
+
   return (
-    <div>
-      <SignIn/>
-      <SignUp/>
+    <div className="auth-container">
+      {isSignUp ? (
+        <SignUp toggleForm={toggleForm} />
+      ) : (
+        <SignIn toggleForm={toggleForm} />
+      )}
     </div>
-  )
+  );
 }
-   
-export default Authentication  
+
+export default Authentication;
