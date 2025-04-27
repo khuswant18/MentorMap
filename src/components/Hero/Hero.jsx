@@ -39,6 +39,9 @@ function Hero() {
             time and clear all the Doubts
           </h1>
 
+          
+
+
           <p className="subtitle">
           Discover the right mentor and college match tailored to your journey 
             <br />

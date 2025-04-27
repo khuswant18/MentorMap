@@ -5,10 +5,11 @@ import { Calendar, Clock2, MessageCircle, Video } from 'lucide-react';
 const studentData = {
   studentDetails: [
     {
+      id: 'mentor1',
       name: "Khuswant Rajpurohit",
       image:'./Student-4.png',
       college: "Newton School of Technology",
-      course: "B.Tech",
+      course: "B.Tech", 
       branch: "Computer Science",
       year: "1st year",
       rating: { value: 4.8, count: 24 },
@@ -17,10 +18,11 @@ const studentData = {
         days: "Mon, Wed, Fri",
         time: "4:00 PM - 8:00 PM"
       },
-      price: 'Free'
+      price: 'Free'          
     },
 
     {
+        id: 'mentor2',
         name: "Kevish Sewliya",
         image:'./student-1.png',
         college: "Newton School of Technology",
@@ -36,6 +38,7 @@ const studentData = {
         price: 'Free'
       },
       {
+        id: 'mentor3',
         name: "Krishna Gehlot",
         image:'./student-2.png',
         college: "Newton School of Technology",
@@ -52,6 +55,7 @@ const studentData = {
       },
 
       {
+        id: 'mentor4',
         name: "Rajat Srivastav",
         image:'./student-3.png',
         college: "Newton School of Technology",
