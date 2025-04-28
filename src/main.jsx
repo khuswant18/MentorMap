@@ -8,11 +8,14 @@ import Home from './Pages/Home/Home';
 import Layout from './Layout';
 import ExploreColleges from './Pages/ExploreColleges/ExploreColleges';
 import Authentication from './Pages/Authentication/Authentication';
+import Profile from './components/Profile/Profile';
+import Error from './Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    errorElement:<Error/>,
     children: [
       {
         path: '',
@@ -26,6 +29,10 @@ const router = createBrowserRouter([
         path: '/explorecolleges', 
         element: <ExploreColleges />,
       }, 
+      {
+        path:"/profile/:mentorId", 
+        element:<Profile/>
+      },
       {
         path: '/findmentor',  
         element: <MentorSection />,

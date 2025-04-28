@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import MentorCard from '../../components/MentorCard/MentorCard'
 
 function MentorSection() {
+
   return (
     <div className='explore-mentor-page'>
 
@@ -26,6 +27,7 @@ function MentorSection() {
         </div>
 
       </div>
+
 
       
     </div>

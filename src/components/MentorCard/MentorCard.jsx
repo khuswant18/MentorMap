@@ -1,6 +1,10 @@
 import React from 'react';
 import './MentorCard.css';
 import { Calendar, Clock2, MessageCircle, Video } from 'lucide-react';
+import { getAuth, onAuthStateChanged, } from 'firebase/auth';  
+import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const studentData = {
   studentDetails: [
@@ -21,7 +25,7 @@ const studentData = {
       price: 'Free'          
     },
 
-    {
+    { 
         id: 'mentor2',
         name: "Kevish Sewliya",
         image:'./student-1.png',
@@ -77,6 +81,29 @@ const studentData = {
 };
 
 const MentorCard = () => {
+
+  const [user,setuser] = useState(null)
+  const navigate = useNavigate()
+  const auth = getAuth()
+
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setuser(currentUser); 
+    });
+    return () => unsubscribe();
+  }, [auth]); 
+
+
+  const handleJoinCall = (mentorId) => {
+    if (user) {
+      navigate(`/profile/${mentorId}`); 
+    } else { 
+      navigate("/auth");
+    }
+  };
+
+
   return (
     <div className="student-cards">
 
@@ -140,8 +167,8 @@ const MentorCard = () => {
                 <MessageCircle className="btn-icon" width="20" height="20"/>
                 Chat
               </button>
-              <button className="btn btn-outline">
-                <Video className="btn-icon" width="20" height="20" />
+              <button className="btn btn-outline" onClick={()=>handleJoinCall(student.id)}>
+                <Video className="btn-icon" width="20" height="20"/>
                 Video Call
               </button>
             </div>

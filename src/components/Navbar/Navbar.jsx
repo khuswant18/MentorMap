@@ -43,7 +43,6 @@ function Navbar() {
       <nav className="nav-container">
         <NavLink to="/" className="login-but" >
           <div className="nav-logo">
-            {/* <img src="./main-logo-removebg.png" alt="Logo" className="main-logo" /> */}
             MentorMap
           </div>
         </NavLink>

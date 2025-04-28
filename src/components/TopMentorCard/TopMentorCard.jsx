@@ -9,7 +9,7 @@ const mentors = [
     rating: '4.3',
     reviewCount: '5',
     education: 'Newton School of Technology, CSE',
-    price: '99',
+    price: 'Free',
     avatar: '/student-1.png',
     expertise: ['College', 'DSA', 'Career Guidance'],
   },
@@ -19,9 +19,9 @@ const mentors = [
     rating: '4.8',
     reviewCount: '8',
     education: 'Newton School of Technology, CSE',
-    price: '89',
+    price: 'Free',
     avatar: '/student-2.png',
-    expertise: ['College', 'Career Advice'],
+    expertise: ['College', 'Career Advice'], 
   },
   {
     id: '3',
@@ -29,7 +29,7 @@ const mentors = [
     rating: '4.9',
     reviewCount: '6',
     education: 'Scaler School of Technology, CSE',
-    price: '49',
+    price: 'Free',
     avatar: '/student-3.png',
     expertise: ['DSA', 'College Life'],
   },
@@ -39,7 +39,7 @@ function TopMentorCard() {
   return (
     <section className="top-mentors-section">
       <div className="section-header">
-        <h1 className="section-title">Top Student Mentors</h1>
+        <h1 className="section-title">Top Student Mentors</h1> 
       </div>
 
       <div className="mentors-container">
@@ -72,7 +72,7 @@ function TopMentorCard() {
 
               <div className="mentor-price">
                 <span className="price-value">₹{mentor.price}</span>
-                <span className="price-unit">per session</span>
+                <span className="price-unit">per session</span> 
               </div>
 
               <div className="mentor-actions">
