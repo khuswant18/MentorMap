@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; 
 import { app } from '../../firebase';
 import { UserRound } from 'lucide-react';
 
-const auth = getAuth(app);
+const auth = getAuth(app); 
 
 function Navbar() {
   const [user, setUser] = useState(null);
-  const [menuOpen, setMenuOpen] = useState(false); // new: for dropdown
+  const [menuOpen, setMenuOpen] = useState(false); 
 
   useEffect(() => {  
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -22,12 +22,12 @@ function Navbar() {
 
     return () => unsubscribe();
   }, []);
-
+ 
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
         setUser(null);
-        setMenuOpen(false); // close menu after logout
+        setMenuOpen(false);
       })
       .catch((error) => {
         console.error("Error signing out: ", error);
@@ -41,9 +41,10 @@ function Navbar() {
   return (
     <header className="header-container">
       <nav className="nav-container">
-        <NavLink to="/">
+        <NavLink to="/" className="login-but" >
           <div className="nav-logo">
-            <img src="./main-logo-removebg.png" alt="Logo" className="main-logo" />
+            {/* <img src="./main-logo-removebg.png" alt="Logo" className="main-logo" /> */}
+            MentorMap
           </div>
         </NavLink>
 
@@ -52,8 +53,8 @@ function Navbar() {
           <NavLink to="/findmentor" className="nav-link">Find Mentors</NavLink>
           <NavLink to="/about" className="nav-link">About Us</NavLink>
         </div>
-
-        <div className="button">
+ 
+        <div className="button"> 
           {user ? (
             <div className="user-icon-container">
               <UserRound onClick={toggleMenu} className="user-icon" />

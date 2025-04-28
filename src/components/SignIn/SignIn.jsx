@@ -23,13 +23,12 @@ function SignIn({ toggleForm }) {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        // Check if email is verified
         if (!auth.currentUser.emailVerified) {
           setError('Please verify your email before logging in.');
           return;
         }
         setError('');
-        navigate('/'); // Redirect to home or dashboard page
+        navigate('/'); 
       })
       .catch((err) => {
         setError('Error: ' + err.message);
@@ -41,7 +40,7 @@ function SignIn({ toggleForm }) {
       .then((result) => {
         const user = result.user;
         console.log('Google Sign-In successful:', user);
-        navigate('/'); // Redirect to home or dashboard page
+        navigate('/'); 
       })
       .catch((error) => {
         setError('Error: ' + error.message);

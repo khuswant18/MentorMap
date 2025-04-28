@@ -6,7 +6,7 @@ import './SignUp.css';
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-
+ 
 function SignUp({ toggleForm }) {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -27,14 +27,13 @@ function SignUp({ toggleForm }) {
       return;
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password) 
       .then((userCredential) => {
-        // Send email verification
         sendEmailVerification(userCredential.user)
           .then(() => {
             alert('Registration successful! Please check your email for verification.');
             setError('');
-            navigate('/auth'); // Redirect to login page
+            navigate('/auth');  
           })
           .catch((err) => {
             setError('Error sending verification email: ' + err.message);
@@ -49,12 +48,12 @@ function SignUp({ toggleForm }) {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log('Google sign-in success', result);
-        navigate('/auth'); // Redirect to login page
+        navigate('/'); 
       })
       .catch((err) => {
         setError('Google sign-up failed: ' + err.message);
       });
-  };
+  }; 
 
   return (
     <div className="form-container">
@@ -131,7 +130,7 @@ function SignUp({ toggleForm }) {
           </span>
         </p>
 
-        <p className="line"></p>
+        <p className="p line">Or With</p>
 
         <div className="flex-row">
           <button type="button" className="btn" onClick={signupWithGoogle}>
