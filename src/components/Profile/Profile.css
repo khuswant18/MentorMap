@@ -233,7 +233,7 @@
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;  
   }
   
   .continue-button:hover {
@@ -302,21 +302,3 @@
   }
   
   
-
-  .selected {
-    background-color: #4CAF50; 
-    color: white;
-    border: 1px solid #4CAF50;
-  }
-  
-  .time-slot {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .time-slot:hover {
-    background-color: #f1f1f1;
-  }

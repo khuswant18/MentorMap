@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Profile.css';
+import { db } from '../../firebase'; 
+import { collection, addDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth'; // Import Firebase Authentication
 
-const studentData = { 
+const studentData = {
   studentDetails: [
     {
       id: 'mentor1',
       name: "Khuswant Rajpurohit",
       image: '/Student-4.png',
       college: "Newton School of Technology",
-      course: "B.Tech", 
+      course: "B.Tech",
       branch: "Computer Science ",
-      year: "1st year", 
+      year: "1st year",
       rating: { value: 4.8, count: 24 },
       tags: ["Admission Help", "Campus Life", "Internships"],
       bio: "A passionate mentor with experience in the tech industry...",
@@ -19,13 +22,13 @@ const studentData = {
         days: "Mon, Wed, Fri",
         time: "4:00 PM - 8:00 PM"
       }
-    }, 
+    },
     {
       id: 'mentor2',
       name: "Kevish Sewliya",
       image: '/student-1.png',
       college: "Newton School of Technology",
-      course: "B.Tech", 
+      course: "B.Tech",
       branch: "Computer Science",
       year: "1st Year",
       rating: { value: 4.8, count: 24 },
@@ -53,39 +56,36 @@ const studentData = {
       }
     },
     {
-        id: 'mentor4',
-        name: "Rajat Srivastav",
-        image: '/student-3.png',
-        college: "Newton School of Technology",
-        course: "B.Tech",
-        branch: "Computer Science",
-        year: "1st Year",
-        rating: { value: 4.8, count: 24 },
-        tags: ["Admission Help", "Campus Life", "Internships"],
-        bio: "Experienced mentor with a focus on software development...",
-        availability: {
-          days: "Mon, Wed, Fri",
-          time: "4:00 PM - 8:00 PM" 
-        }
+      id: 'mentor4',
+      name: "Rajat Srivastav",
+      image: '/student-3.png',
+      college: "Newton School of Technology",
+      course: "B.Tech",
+      branch: "Computer Science",
+      year: "1st Year",
+      rating: { value: 4.8, count: 24 },
+      tags: ["Admission Help", "Campus Life", "Internships"],
+      bio: "Experienced mentor with a focus on software development...",
+      availability: {
+        days: "Mon, Wed, Fri",
+        time: "4:00 PM - 8:00 PM"
       }
+    }
   ]
-}; 
+};
 
-const Profile = () => { 
-    
-  const { mentorId } = useParams(); 
-  const [mentor, setMentor] = useState(null); 
+const Profile = () => {
+  const { mentorId } = useParams();
+  const [mentor, setMentor] = useState(null);
   const [dates, setDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-
 
   useEffect(() => {
     const foundMentor = studentData.studentDetails.find(
       (mentor) => mentor.id === mentorId
     );
     setMentor(foundMentor);
-
     generateDates();
   }, [mentorId]);
 
@@ -107,12 +107,46 @@ const Profile = () => {
   };
 
   const handleDateSelect = (date) => {
-    setSelectedDate(date);
-    setSelectedTime(null);  
+    const fullDate = `${date.dayNumber} ${date.monthName} 2025`;
+    setSelectedDate(fullDate);
+    setSelectedTime(null);
   };
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time);
+  };
+
+  const handleBooking = async () => {
+    if (!selectedDate || !selectedTime) {
+      alert("Please select both date and time.");
+      return;
+    }
+
+    // Get the email of the currently logged-in user
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const email = user ? user.email : null; // Get email or null if no user is logged in
+
+    if (!email) {
+      alert("You must be logged in to book a session.");
+      return;
+    }
+
+    try {
+      const bookingRef = collection(db, "bookings");
+      await addDoc(bookingRef, {
+        mentorId: mentor.id,
+        mentorName: mentor.name,
+        date: selectedDate,
+        time: selectedTime,
+        userEmail: email, // Store the user's email
+        createdAt: new Date()
+      });
+      alert("Booking confirmed!");
+    } catch (error) {
+      console.error("Error saving booking:", error);
+      alert("Failed to save booking. Try again.");
+    }
   };
 
   if (!mentor) {
@@ -162,10 +196,10 @@ const Profile = () => {
 
           <div className="date-selection">
             {dates.map((date, index) => (
-              <div 
-                className={`date-option ${selectedDate === date.dayNumber ? 'selected' : ''}`} 
-                key={index} 
-                onClick={() => handleDateSelect(date.dayNumber)}
+              <div
+                className={`date-option ${selectedDate === `${date.dayNumber} ${date.monthName} 2025` ? 'selected' : ''}`}
+                key={index}
+                onClick={() => handleDateSelect(date)}
               >
                 <div className="day-name">{date.dayName}</div>
                 <div className="day-number">{date.dayNumber}</div>
@@ -178,9 +212,9 @@ const Profile = () => {
 
           <div className="time-slots">
             {["09:00 AM", "10:30 AM", "01:00 PM", "03:30 PM", "05:00 PM", "06:30 PM"].map((time, index) => (
-              <button 
+              <button
+                className={`date-option ${selectedTime === time ? 'selected' : ''}`}
                 key={index}
-                className={`time-slot ${selectedTime === time ? 'selected' : ''}`} 
                 onClick={() => handleTimeSelect(time)}
               >
                 {time}
@@ -188,7 +222,9 @@ const Profile = () => {
             ))}
           </div>
 
-          <button className="continue-button">Continue</button>
+          <button className="continue-button" onClick={handleBooking}>
+            Continue
+          </button>
         </div>
       </div>
     </div>
