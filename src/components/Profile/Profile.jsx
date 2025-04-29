@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Profile.css';
 import { db } from '../../firebase'; 
-import { collection, addDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth'; // Import Firebase Authentication
+import { getAuth } from 'firebase/auth'; 
+import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
 
 const studentData = {
   studentDetails: [
@@ -75,7 +75,7 @@ const studentData = {
 };
 
 const Profile = () => {
-  const { mentorId } = useParams();
+  const { mentorId } = useParams(); 
   const [mentor, setMentor] = useState(null);
   const [dates, setDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -121,31 +121,53 @@ const Profile = () => {
       alert("Please select both date and time.");
       return;
     }
-
-    // Get the email of the currently logged-in user
+  
     const auth = getAuth();
     const user = auth.currentUser;
-    const email = user ? user.email : null; // Get email or null if no user is logged in
-
+    const email = user ? user.email : null;
+  
     if (!email) {
       alert("You must be logged in to book a session.");
       return;
     }
-
+  
     try {
-      const bookingRef = collection(db, "bookings");
-      await addDoc(bookingRef, {
+      const bookingsRef = collection(db, "bookings");
+      const q = query(bookingsRef, where("userEmail", "==", email));
+      const querySnapshot = await getDocs(q);
+  
+      if (!querySnapshot.empty) {
+        const bookings = querySnapshot.docs.map(doc => doc.data());
+  
+        const latestBooking = bookings.reduce((latest, current) => {
+          return new Date(current.createdAt.seconds * 1000) > new Date(latest.createdAt.seconds * 1000)
+            ? current
+            : latest;
+        });
+  
+        const lastBookingDate = new Date(latestBooking.createdAt.seconds * 1000);
+        const now = new Date();
+        const diffInDays = Math.floor((now - lastBookingDate) / (1000 * 60 * 60 * 24));
+  
+        if (diffInDays < 14) {
+          alert(`You can only book a session once every 14 days. Please try again after ${14 - diffInDays} day(s).`);
+          return;
+        }
+      }
+  
+      await addDoc(bookingsRef, {
         mentorId: mentor.id,
         mentorName: mentor.name,
         date: selectedDate,
         time: selectedTime,
-        userEmail: email, // Store the user's email
+        userEmail: email,
         createdAt: new Date()
       });
+  
       alert("Booking confirmed!");
     } catch (error) {
-      console.error("Error saving booking:", error);
-      alert("Failed to save booking. Try again.");
+      console.error("Error checking or saving booking:", error);
+      alert("Failed to process booking. Try again.");
     }
   };
 
