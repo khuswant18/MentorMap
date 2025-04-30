@@ -27,9 +27,6 @@ function Hero() {
         <div className="members-section">
           <Avatar />
           <div className="join-text">Join 3k+ Members</div>
-          <NavLink href="#" className="button secondary">
-            Join Now →
-          </NavLink> 
         </div>
 
         <div className="hero-section">

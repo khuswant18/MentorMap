@@ -1,5 +1,8 @@
 import React from 'react'
 import './CollegeCard.css'
+import { useNavigate } from 'react-router-dom'
+
+
 
 const colleges = [ 
   {
@@ -10,6 +13,7 @@ const colleges = [
     location: { city: 'Delhi,NCR', state: 'Haryana' },
     rating: 4.8,
     popularCourses: ['Computer Science', 'Mechanical', 'Electrical'],
+    isActive: true
   },
   {
     id: 2,
@@ -19,6 +23,7 @@ const colleges = [
     location: { city: 'Bengaluru', state: 'Karnataka' },
     rating: 4.8,
     popularCourses: ['Computer Science', 'Mechanical', 'Electrical'],
+    isActive: false
   },
   {
     id: 3,
@@ -28,6 +33,7 @@ const colleges = [
     location: { city: 'Vellore', state: 'Tamil Nadu' },
     rating: 4.8,
     popularCourses: ['Computer Science', 'Mechanical', 'Electrical'],
+    isActive: false
   },
   {
     id: 4,
@@ -37,10 +43,20 @@ const colleges = [
     location: { city: 'Noida', state: 'UP' },
     rating: 4.8,
     popularCourses: ['Computer Science', 'Mechanical', 'Electrical'],
+    isActive: false
   },
 ]
 
+
 function CollegeCard() {
+  
+    const navigate = useNavigate()
+  
+    function handleClick() {
+      navigate('/findmentor')
+    }
+
+
   return (
       <div className="colleges-container">
         
@@ -68,8 +84,7 @@ function CollegeCard() {
             </div>
 
             <div className="college-rating">
-              {college.rating}
-              <span className="rating-value">{college.rating}</span>
+              <span className="rating-value"><span class="rating-star">★</span> {college.rating}</span>
             </div>
 
             <div className="college-courses">
@@ -86,15 +101,21 @@ function CollegeCard() {
             <div className="college-actions">
               <button
                 className="view-details-button"
+                disabled={!college.isActive}
               >
                 View Details
               </button>
               <button
+                onClick={() => college.isActive && handleClick()}
                 className="connect-button"
+                disabled={!college.isActive}
               >
                 Connect with a Student
               </button>
             </div>
+
+
+
           </div>
         ))}
       </div>

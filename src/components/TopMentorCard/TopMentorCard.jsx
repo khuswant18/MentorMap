@@ -1,6 +1,7 @@
 import React from 'react'
 import './TopMentorCard.css'
 import { MessageSquare, Calendar } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const mentors = [
   {
@@ -36,6 +37,9 @@ const mentors = [
 ]
 
 function TopMentorCard() {
+
+  const navigate = useNavigate()
+
   return (
     <section className="top-mentors-section">
       <div className="section-header">
@@ -76,11 +80,11 @@ function TopMentorCard() {
               </div>
 
               <div className="mentor-actions">
-                <button className="chat-button">
+                <button className="chat-button" onClick={()=>navigate('/findmentor')}>
                   <MessageSquare size={16} />
                   Chat
                 </button>
-                <button className="call-button">
+                <button className="call-button" onClick={()=>navigate('/findmentor')}>
                   <Calendar size={16} />
                   Book
                 </button>

@@ -15,7 +15,7 @@ function Footer() {
 
         <div className="cont-2">
           <h3>Quick Links</h3>
-          <NavLink to='/explorecollege'>Find Colleges</NavLink>
+          <NavLink to='/explorecolleges'>Find Colleges</NavLink>
           <NavLink to='/findmentor'>Find Mentors</NavLink>
           <NavLink to='/about'>About</NavLink>
         </div>
@@ -30,10 +30,10 @@ function Footer() {
         <div className="cont-4">
           <h3>Connect with us</h3>
           <div className="socials">
-            <a href="#" className='social-link'><Instagram /></a>
-            <a href="#" className='social-link'><Twitter /></a>
-            <a href="#" className='social-link'><Linkedin /></a>
-            <a href="mailto:hello@mentormap.com" className='social-link'><Mail /></a>
+            <a href="https://www.instagram.com/khuswant_purohit_/" className='social-link'><Instagram /></a>
+            <a href="https://x.com/KhuswantRa45688" className='social-link'><Twitter /></a>
+            <a href="https://www.linkedin.com/in/khuswant-rajpurohit-b749ba30a/" className='social-link'><Linkedin /></a>
+            <a href="mailto:khuswantrajpurohit18@gmail.com" className='social-link'><Mail /></a>
           </div>
         </div>
       </footer>

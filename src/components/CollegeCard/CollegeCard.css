@@ -145,4 +145,16 @@
   .connect-button:hover {
     background-color: var(--button-hover, #4338ca);
   }
+
+  .disabled-card {
+    filter: grayscale(100%);
+    opacity: 0.7;
+  }
+  
+  .disabled-card .view-details-button,
+  .disabled-card .connect-button {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
   
