@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Profile.css';
-import BookSession from '../Booksession/BookSession';
 
 const studentData = {
   studentDetails: [
@@ -107,7 +106,6 @@ const Profile = () => {
           </div>
         </div>
 
-      <BookSession mentor={mentor} />
       </div>
     </div>
   );
