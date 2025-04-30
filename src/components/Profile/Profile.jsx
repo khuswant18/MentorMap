@@ -75,7 +75,7 @@ const studentData = {
     }
   ]
 };
-
+ 
 const Profile = () => {
   const { mentorId } = useParams();
   const [mentor, setMentor] = useState(null);
@@ -107,10 +107,10 @@ const Profile = () => {
           </div>
         </div>
 
-      <BookSession/>
+      <BookSession/> 
       </div>
     </div>
   );
 };
 
-export default Profile;
+export default Profile; 
