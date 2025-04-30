@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './Profile.css';
-import BookSession from "../Booksession/BookSession";
+import BookSession from "../BookSession/BookSession";
 
 const studentData = {
   studentDetails: [
