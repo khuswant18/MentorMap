@@ -107,7 +107,7 @@ const Profile = () => {
           </div>
         </div>
 
-      <BookSession/> 
+        <BookSession mentor={mentor} />
       </div>
     </div>
   );
