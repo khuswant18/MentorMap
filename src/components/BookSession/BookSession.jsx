@@ -80,7 +80,6 @@ const BookSession = ({ mentor }) => {
         }
       }
 
-      // 1. Save booking in Firestore
       await addDoc(bookingsRef, {
         mentorId: mentor.id,
         mentorName: mentor.name,
@@ -90,21 +89,19 @@ const BookSession = ({ mentor }) => {
         userEmail: email,
         createdAt: new Date()
       });
-
-      // 2. Send confirmation emails to mentor and user
-      await fetch('/api/sendBookingEmail', {
-        method: 'POST',
+// Change it to render deployed URL
+      await fetch("https://backend-mentormap.onrender.com/send-confirmation", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          userEmail: email,
           mentorEmail: mentor.gmail,
           mentorName: mentor.name,
-          userEmail: email,
-          userName: user.displayName || user.email, // Or a username if stored in Firestore
           date: selectedDate,
           time: selectedTime,
-        }),
+        })
       });
 
       alert("Booking confirmed! Confirmation emails sent.");

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendEmailVerification } from 'firebase/auth';
 import { app } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
-import './SignUp.css';
+import './SignUp.css'; 
 
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider(); 
  
 function SignUp({ toggleForm }) {
   const [email, setemail] = useState('');
@@ -14,7 +14,7 @@ function SignUp({ toggleForm }) {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const createUser = (e) => {
+  const createUser = (e) => { 
     e.preventDefault();
 
     if (!email || !password || !confirmPassword) {
