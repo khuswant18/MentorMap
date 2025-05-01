@@ -78,22 +78,36 @@ const BookSession = ({ mentor }) => {
           alert(`You can only book once every 14 days. Try again after ${14 - diffInDays} day(s).`);
           return;
         }
-      } 
+      }
 
-          await addDoc(bookingsRef, {
-            mentorId: mentor.id,
-            mentorName: mentor.name,
-            mentorEmail: mentor.gmail,  
-            date: selectedDate,
-            time: selectedTime,
-            userEmail: email,
-            createdAt: new Date()
-          });
+      // 1. Save booking in Firestore
+      await addDoc(bookingsRef, {
+        mentorId: mentor.id,
+        mentorName: mentor.name,
+        mentorEmail: mentor.gmail,
+        date: selectedDate,
+        time: selectedTime,
+        userEmail: email,
+        createdAt: new Date()
+      });
 
+      // 2. Send confirmation emails to mentor and user
+      await fetch('/api/sendBookingEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mentorEmail: mentor.gmail,
+          mentorName: mentor.name,
+          userEmail: email,
+          userName: user.displayName || user.email, // Or a username if stored in Firestore
+          date: selectedDate,
+          time: selectedTime,
+        }),
+      });
 
-      
-
-      alert("Booking confirmed!");
+      alert("Booking confirmed! Confirmation emails sent.");
     } catch (error) {
       console.error("Error during booking:", error);
       alert("Failed to book session. Try again.");
