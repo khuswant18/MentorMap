@@ -18,15 +18,15 @@ const studentData = {
       bio: "A passionate mentor with experience in the tech industry...",
       availability: {
         days: "Mon, Wed, Fri",
-        time: "4:00 PM - 8:00 PM"
+        time: "4:00 PM - 8:00 PM"  
       },
-      gmail: "khuswantrajpurohit18@gmail.com"
+      gmail: "khuswantrajpurohit18@gmail.com" 
     },
     {
       id: 'mentor2',
       name: "Kevish Sewliya",
       image: '/student-1.png',
-      college: "Newton School of Technology",
+      college: "Newton School of Technology", 
       course: "B.Tech",
       branch: "Computer Science",
       year: "1st Year",
@@ -54,7 +54,7 @@ const studentData = {
         days: "Mon, Wed, Fri",
         time: "4:00 PM - 8:00 PM"
       },
-      gmail: "prokevish07@gmail.com"
+      gmail: "krishnagehlot936@gmail.com"
     },
     {
       id: 'mentor4',
@@ -71,7 +71,7 @@ const studentData = {
         days: "Mon, Wed, Fri",
         time: "4:00 PM - 8:00 PM"
       },
-      gmail: "prokevish07@gmail.com"
+      gmail: "Rajatrsrivastav810@gmail.com" 
     }
   ]
 };
@@ -104,10 +104,10 @@ const Profile = () => {
           <div className="about-section">
             <h2 className="about-heading">About</h2>
             <p className="about-text">{mentor.bio}</p>
-          </div>
+          </div> 
         </div>
 
-        <BookSession mentor={mentor}/>
+        <BookSession mentor={mentor}/> 
 
 
       </div>
@@ -115,4 +115,4 @@ const Profile = () => {
   );
 };
 
-export default Profile; 
+export default Profile;  

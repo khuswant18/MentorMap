@@ -39,7 +39,7 @@ const studentData = {
           days: "Mon, Wed, Fri",
           time: "4:00 PM - 8:00 PM"
         },
-        price: 'Free'
+        price: 'Free' 
       },
       {
         id: 'mentor3',
@@ -73,7 +73,7 @@ const studentData = {
           time: "4:00 PM - 8:00 PM"
         },
         price: 'Free'
-      },
+      }, 
 
 
 
