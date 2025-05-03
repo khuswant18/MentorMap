@@ -150,7 +150,7 @@ const BookSession = ({ mentor }) => {
           date: selectedDate, 
           time: selectedTime,
         })
-      });
+      }); 
   
       alert("Booking confirmed! Confirmation emails sent.");
     } catch (error) {
