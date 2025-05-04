@@ -139,7 +139,7 @@ const BookSession = ({ mentor }) => {
         createdAt: new Date()
       });
   
-      // await fetch("http://localhost:5001/send-confirmation", {
+      // await fetch("http://localhost:5001/send-confirmation", { 
       await fetch("https://backend-mentormap.onrender.com/send-confirmation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -148,7 +148,7 @@ const BookSession = ({ mentor }) => {
           mentorEmail: mentor.gmail,
           mentorName: mentor.name,
           date: selectedDate, 
-          time: selectedTime,
+          time: selectedTime, 
         })
       }); 
   
