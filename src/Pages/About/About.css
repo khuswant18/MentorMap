@@ -37,7 +37,6 @@
     line-height: 1.6;
   }
   
-  /* Container */
   .about-container {
     max-width: 100%;
     min-height: 100vh;
@@ -45,7 +44,6 @@
     flex-direction: column;
   }
   
-  /* Header styles */
   .header {
     display: flex;
     justify-content: space-between;
@@ -160,7 +158,6 @@
     color: white;
   }
   
-  /* Hero section */
   .hero-sectionn {
     background: var(--primary-gradient);
     color: white;
@@ -213,6 +210,18 @@
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
+    animation: fadeIn 0.7s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .section-tag {
@@ -254,6 +263,7 @@
     gap: 4rem;
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 0.8s ease-in-out forwards;
   }
   
   .mission-text {
