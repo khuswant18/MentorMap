@@ -1,23 +1,25 @@
 import React from "react";
 import "./TopMentorCard.css";
-import { MessageSquare, Calendar } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const mentors = [
   {
     id: "1",
-    name: "Kevish Sewliya",
-    rating: "4.3",
-    reviewCount: "5",
-    education: "Newton School of Technology, CSE",
-    price: "Free",
-    avatar: "/student-1.png",
-    expertise: ["College", "DSA", "Career Guidance"],
+    name: "Khuswant Rajpurohit",
+    designation:"Student",
+    avatar: "/Student-4.png",
   },
   {
     id: "2",
+    name: "Kevish Sewliya",
+    designation:"Student",
+    avatar: "/student-1.png",
+  },
+  {
+    id: "3",
     name: "Krishna Gehlot",
+    designation:"Student",
+
     rating: "4.8",
     reviewCount: "8",
     education: "Newton School of Technology, CSE",
@@ -26,8 +28,9 @@ const mentors = [
     expertise: ["College", "Career Advice"],
   },
   {
-    id: "3",
+    id: "4",
     name: "Rajat Srivastav",
+    designation:"Student",
     rating: "4.9",
     reviewCount: "6",
     education: "Scaler School of Technology, CSE",
@@ -38,7 +41,6 @@ const mentors = [
 ];
 
 function TopMentorCard() {
-  const navigate = useNavigate();
 
   return (
     <section className="top-mentors-section">
@@ -49,74 +51,33 @@ function TopMentorCard() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Top Student Mentors
+            Meet Our Team
+
           </motion.div>
         </h1>
-      </div>
+      </div> 
 
-      <div className="mentors-container">
-        {mentors.map((mentor) => (
-          <motion.div
-            key={mentor.id}
-            className="mentor-card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              ease: "linear",
-            }}
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <div className="mentor-profile">
-              <img
-                src={mentor.avatar || "/placeholder.svg"}
-                alt={`${mentor.name}'s profile`}
-                className="mentor-avatar"
-              />
-
-              <h2 className="mentor-name">{mentor.name}</h2>
-
-              <div className="mentor-rating">
-                <span className="star-icon">★</span>
-                <span className="rating-value">{mentor.rating}</span>
-                <span className="review-count">({mentor.reviewCount})</span>
+      <section className="team-section">
+        {mentors.map((mentor)=>(
+            <div key={mentor.id} className="team-grid">
+            <div className="team-card"> 
+              <div className="team-avatar">
+                <span><img class="student-avatar" src={mentor.avatar}  /></span>
               </div>
-
-              <p className="mentor-education">{mentor.education}</p>
-
-              <div className="mentor-expertise">
-                {mentor.expertise.map((skill, index) => (
-                  <span key={index} className="expertise-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mentor-price">
-                <span className="price-value">₹{mentor.price}</span>
-                <span className="price-unit">per session</span>
-              </div>
-
-              <div className="mentor-actions">
-                <button
-                  className="chat-button"
-                  onClick={() => navigate("/findmentor")}
-                >
-                  <MessageSquare size={16} />
-                  Chat
-                </button>
-                <button
-                  className="call-button"
-                  onClick={() => navigate("/findmentor")}
-                >
-                  <Calendar size={16} />
-                  Book
-                </button>
-              </div>
+              <h3>{mentor.name}</h3>
+              <p className="team-title">{mentor.designation}</p>
+              <p className="team-bio">
+                Former Dean of Admissions at IIT Delhi with 15+ years of experience in higher education administration.
+              </p>
             </div>
-          </motion.div>
+
+            
+          </div>
+
         ))}
-      </div>
+
+          
+        </section>
     </section>
   );
 }

@@ -78,13 +78,19 @@ const studentData = {
 
 
   ]
-};
+}; 
 
-const MentorCard = () => {
+const MentorCard = ({ searchTerm }) => {
 
   const [user,setuser] = useState(null)
   const navigate = useNavigate()
   const auth = getAuth()
+
+  const filteredMentors = studentData.studentDetails.filter((mentor) =>
+    `${mentor.name} ${mentor.college} ${mentor.course}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
 
   useEffect(() => {
@@ -106,7 +112,7 @@ const MentorCard = () => {
 
   return (
     <div className="student-cards">
-      {studentData.studentDetails.map((student, index) => (
+      {filteredMentors.map((student, index) => (
         <motion.div
           key={index}
           className="student-card"
@@ -188,7 +194,7 @@ const MentorCard = () => {
             </div>
           </div>
         </motion.div>
-      ))}
+      ))} 
     </div>
   );
 };

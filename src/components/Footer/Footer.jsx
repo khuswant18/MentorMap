@@ -1,33 +1,59 @@
 import React from 'react';
 import './Footer.css';
-import { NavLink } from 'react-router-dom';
 import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
+
+  const navigate = useNavigate()
+  
   return (
     <div className='footer-section'>
       <hr />
-      <footer className="footer-container">
-        <div className="cont-1">
-          <h2>MentorMap</h2>
-          <p>Connect in real-time with college students</p>
-        </div>
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <div className="logo">
+              <span className="logo-text">MentorMap</span>
+              <span className="logo-dot"></span>
+            </div>
+            <p>Transforming college admissions through personalized guidance and AI-powered insights.</p>
+          </div>
+          <div className="footer-links">
+            <div className="footer-column">
+              <h3>Platform</h3>
+              <ul>
+                <li>
+                  <a onClick={()=>navigate('/explorecolleges')}>Explore Collegs</a> 
+                </li>
+                <li>
+                  <a onClick={()=>navigate('/findmentor')}>Find Mentors</a>
+                </li>
+                <li>
+                  <a onClick={()=>navigate('/about')}>About</a>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="footer-column">
+              <h3>Company</h3>
+              <ul>
+                <li>
+                  <a onClick={()=>navigate('/about')}>About Us</a>
+                </li>
+                <li>
+                  <a onClick={()=>navigate('/TopMentorCard')}>Our Team</a>
+                </li>
+                <li>
+                  <a href="#">Careers</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
 
-        <div className="cont-2">
-          <h3>Quick Links</h3>
-          <NavLink to='/explorecolleges'>Find Colleges</NavLink>
-          <NavLink to='/findmentor'>Find Mentors</NavLink>
-          <NavLink to='/about'>About</NavLink>
-        </div>
-
-        <div className="cont-3">
-          <h3>Support</h3>
-          <NavLink to='/help'>Help Center</NavLink>
-          <NavLink to='/terms'>Terms & Conditions</NavLink>
-          <NavLink to='/privacy'>Privacy Policy</NavLink>
-        </div>
-
-        <div className="cont-4">
+            <div className="cont-4"> 
           <h3>Connect with us</h3>
           <div className="socials">
             <a href="https://www.instagram.com/khuswant_purohit_/" className='social-link'><Instagram /></a>
@@ -35,12 +61,19 @@ function Footer() {
             <a href="https://www.linkedin.com/in/khuswant-rajpurohit-b749ba30a/" className='social-link'><Linkedin /></a>
             <a href="mailto:khuswantrajpurohit18@gmail.com" className='social-link'><Mail /></a>
           </div>
+            </div> 
+
+
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} RankMate. All rights reserved.</p>
+          <div className="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
         </div>
       </footer>
-
-      <div className="footer-bottom">
-        <p>Made with ❤️ by Khuswant Rajpurohit</p>
-      </div>
     </div>
   );
 }

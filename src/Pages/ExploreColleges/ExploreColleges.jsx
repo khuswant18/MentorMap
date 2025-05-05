@@ -12,18 +12,18 @@ function ExploreColleges() {
           <div className="explore-header-container">
           <h1 className='college-heading'>Discover Colleges Across India</h1>
           <p className='college-heading-desc'>Browse through our comprehensive list of colleges and universities. Filter by type, location, and courses to find your perfect match.</p>
-          <SearchBar placeholder='Search Colleges...'/>      
+          <SearchBar placeholder='Search Colleges...' />      
           </div>
         </header>
 
-      <div className="explore-content">
+      <div className="explore-content"> 
 
         <Sidebar/> 
         
         <div className="explore-college-card"> 
         <h1 className='explore-title'>All Colleges</h1> 
         <CollegeCard/> 
-        <CollegeCard/> 
+        <CollegeCard/>  
         </div>
 
       </div>

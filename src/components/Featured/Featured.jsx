@@ -12,6 +12,7 @@ function Featured() {
 
     <section className="featured-colleges-section">
 
+
       <div className="section-header">
         <h1 className="section-title">
         <motion.div

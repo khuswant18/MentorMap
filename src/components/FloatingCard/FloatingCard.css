@@ -1,7 +1,7 @@
 .floating-card {
     position: absolute;
     width: 240px;
-    height: 140px;
+    height: 10rem;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
