@@ -4,7 +4,7 @@ import { Calendar, Clock2, MessageCircle, Video } from 'lucide-react';
 import { getAuth, onAuthStateChanged, } from 'firebase/auth';  
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import { motion } from 'framer-motion';
 
 const studentData = {
   studentDetails: [
@@ -106,12 +106,21 @@ const MentorCard = () => {
 
   return (
     <div className="student-cards">
-
       {studentData.studentDetails.map((student, index) => (
-        <div className="student-card" key={index}>
-
+        <motion.div
+          key={index}
+          className="student-card"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="student-left">
-            <img src={student.image} alt={student.name} className="student-avatar" />
+            <img
+              src={student.image}
+              alt={student.name}
+              className="student-avatar"
+            />
             <h3 className="student-name">{student.name}</h3>
             <div className="student-rating">
               <span className="rating-star">★</span>
@@ -141,7 +150,9 @@ const MentorCard = () => {
 
             <div className="tags">
               {student.tags.map((tag, index) => (
-                <span className="tag" key={index}>{tag}</span>
+                <span className="tag" key={index}>
+                  {tag}
+                </span>
               ))}
             </div>
 
@@ -151,7 +162,7 @@ const MentorCard = () => {
                 Available: {student.availability.days}
               </div>
               <div className="availability-item">
-                <Clock2 className="availability-icon" width="16" height="16"/>
+                <Clock2 className="availability-icon" width="16" height="16" />
                 {student.availability.time}
               </div>
             </div>
@@ -164,21 +175,20 @@ const MentorCard = () => {
             </div>
             <div className="action-buttons">
               <button className="btn btn-primary">
-                <MessageCircle className="btn-icon" width="20" height="20"/>
+                <MessageCircle className="btn-icon" width="20" height="20" />
                 Chat
               </button>
-              <button className="btn btn-outline" onClick={()=>handleJoinCall(student.id)}>
-                <Video className="btn-icon" width="20" height="20"/>
+              <button
+                className="btn btn-outline"
+                onClick={() => handleJoinCall(student.id)}
+              >
+                <Video className="btn-icon" width="20" height="20" />
                 Video Call
               </button>
             </div>
           </div>
-            
-
-
-        </div>
+        </motion.div>
       ))}
-
     </div>
   );
 };

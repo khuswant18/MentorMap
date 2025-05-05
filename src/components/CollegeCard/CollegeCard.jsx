@@ -1,6 +1,8 @@
 import React from 'react'
 import './CollegeCard.css'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion';
+
 
 
 
@@ -58,67 +60,71 @@ function CollegeCard() {
 
 
   return (
-      <div className="colleges-container">
-        
-        {colleges.map((college) => ( 
-          <div key={college.id} className="college-card">
-
-            <div className="college-header">
-              <img
-                src={college.logo || '/placeholder.svg'}
-                alt={`${college.name} logo`}
-                className="college-logo"
-              />
-              <div className="college-info">
-                <h2 className="college-name">{college.name}</h2>
-                <div className="college-meta">
-                  <span className="college-type">{college.type}</span>
-                  <div className="college-location">
-                    <span className="location-icon">📍</span>
-                    <span>
-                      {college.location.city}, {college.location.state}
-                    </span>
-                  </div>
-                </div>
+    <div className="colleges-container">
+    {colleges.map((college) => (
+      <motion.div
+        key={college.id}
+        className="college-card"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <div className="college-header">
+          <img
+            src={college.logo || '/placeholder.svg'}
+            alt={`${college.name} logo`}
+            className="college-logo"
+          />
+          <div className="college-info">
+            <h2 className="college-name">{college.name}</h2>
+            <div className="college-meta">
+              <span className="college-type">{college.type}</span>
+              <div className="college-location">
+                <span className="location-icon">📍</span>
+                <span>
+                  {college.location.city}, {college.location.state}
+                </span>
               </div>
             </div>
-
-            <div className="college-rating">
-              <span className="rating-value"><span class="rating-star">★</span> {college.rating}</span>
-            </div>
-
-            <div className="college-courses">
-              <p className="courses-label">Popular courses:</p>
-              <div className="courses-tags">
-                {college.popularCourses.map((course, index) => (
-                  <span key={index} className="course-tag">
-                    {course}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="college-actions">
-              <button
-                className="view-details-button"
-                disabled={!college.isActive}
-              >
-                View Details
-              </button>
-              <button
-                onClick={() => college.isActive && handleClick()}
-                className="connect-button"
-                disabled={!college.isActive}
-              >
-                Connect with a Student
-              </button>
-            </div>
-
-
-
           </div>
-        ))}
-      </div>
+        </div>
+
+        <div className="college-rating">
+          <span className="rating-value">
+            <span className="rating-star">★</span> {college.rating}
+          </span>
+        </div>
+
+        <div className="college-courses">
+          <p className="courses-label">Popular courses:</p>
+          <div className="courses-tags">
+            {college.popularCourses.map((course, index) => (
+              <span key={index} className="course-tag">
+                {course}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="college-actions">
+          <button
+            className="view-details-button"
+            disabled={!college.isActive}
+          >
+            View Details
+          </button>
+          <button
+            onClick={() => college.isActive && handleClick()}
+            className="connect-button"
+            disabled={!college.isActive}
+          >
+            Connect with a Student
+          </button>
+        </div>
+      </motion.div>
+    ))}
+  </div>
   )
 }
 

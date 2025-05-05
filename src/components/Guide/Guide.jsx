@@ -1,6 +1,8 @@
 import React from "react";
 import "./Guide.css";
 import { Calendar, MessagesSquare, Search } from "lucide-react";
+import { motion } from 'framer-motion';
+
 
 const steps = [
   {
@@ -28,30 +30,40 @@ function Guide() {
     <section className="working-section">
 
       <div className="section-header">
-        <h1 className="section-title">How this Works ?</h1>
+        <h1 className="section-title">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+        How this Works ?
+      </motion.div>
+          
+        </h1>
       </div>
 
       <div className="working-container">
-        {steps.map((step, index) => {
-          return (
-            <div key={index} className="working-card"> 
-
-              <div className="working-profile">
-
-                <div className="symbol-container">
-                    {step.symbol}
-                </div>
-
-                <h2 className="working-name">{step.name}</h2>
-
-                <p className="working-description">{step.description}</p>
-
-
-              </div>
+      {steps.map((step, index) => (
+        <motion.div
+          key={index}
+          className="working-card"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <div className="working-profile">
+            <div className="symbol-container">
+              {step.symbol}
             </div>
-          );
-        })}
-      </div>
+
+            <h2 className="working-name">{step.name}</h2>
+
+            <p className="working-description">{step.description}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
 
     </section>
   );
