@@ -18,7 +18,7 @@ const studentData = {
       year: "1st year",
       rating: { value: 4.8, count: 24 },
       tags: ["Admission Help", "Campus Life", "Internships"],
-      availability: {
+      availability: {   
         days: "Mon, Wed, Fri",
         time: "4:00 PM - 8:00 PM"
       },
@@ -53,7 +53,7 @@ const studentData = {
         tags: ["Admission Help", "Campus Life", "Internships"],
         availability: {
           days: "Mon, Wed, Fri",
-          time: "4:00 PM - 8:00 PM"
+          time: "4:00 PM - 8:00 PM" 
         },
         price: 'Free'
       },
@@ -73,6 +73,22 @@ const studentData = {
           time: "4:00 PM - 8:00 PM"
         },
         price: 'Free'
+      }, 
+      {
+        id: 'mentor5',
+        name: "Prataya Silla",
+        image:'./student-5.png',
+        college: "Newton School of Technology",
+        course: "B.Tech",
+        branch: "Computer Science",
+        year: "1st Year",
+        rating: { value: 4.8, count: 24 },
+        tags: ["Admission Help", "Campus Life", "Internships"],
+        availability: {
+          days: "Mon, Wed, Fri",
+          time: "4:00 PM - 8:00 PM"
+        },
+        price: 'Free' 
       }, 
 
 
@@ -113,7 +129,7 @@ const MentorCard = ({ searchTerm }) => {
   return (
     <div className="student-cards">
       {filteredMentors.map((student, index) => (
-        <motion.div
+        <motion.div 
           key={index}
           className="student-card"
           initial={{ opacity: 0, y: 50 }}

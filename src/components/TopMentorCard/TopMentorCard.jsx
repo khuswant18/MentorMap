@@ -38,7 +38,7 @@ const mentors = [
     avatar: "/student-3.png",
     expertise: ["DSA", "College Life"],
   },
-];
+]; 
 
 function TopMentorCard() {
 

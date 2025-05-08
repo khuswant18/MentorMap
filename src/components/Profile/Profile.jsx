@@ -72,6 +72,23 @@ const studentData = {
         time: "4:00 PM - 8:00 PM"
       },
       gmail: "Rajatrsrivastav810@gmail.com" 
+    },
+    {
+      id: 'mentor5',
+      name: "Prataya Silla",
+      image: '/student-5.png',
+      college: "Newton School of Technology",
+      course: "B.Tech",
+      branch: "Computer Science",
+      year: "1st Year",
+      rating: { value: 4.8, count: 24 },
+      tags: ["Admission Help", "Campus Life", "Internships"],
+      bio: "Experienced mentor with a focus on software development...",
+      availability: {
+        days: "Mon, Wed, Fri",
+        time: "4:00 PM - 8:00 PM"
+      },
+      gmail: "proprataya339@gmail.com" 
     }
   ]
 };
